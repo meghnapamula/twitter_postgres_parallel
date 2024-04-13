@@ -11,11 +11,9 @@ time echo "$files" | parallel ./load_denormalized.sh
 echo '================================================================================'
 echo 'load pg_normalized'
 echo '================================================================================'
-# FIXME: implement this with GNU parallel
-time echo "$files" | parallel ./load_normalized.sh
+echo "$files" | time parallel python3 -u load_tweets.py --db=postgresql://postgres:pass@localhost:9856/ --inputs
 
 echo '================================================================================'
 echo 'load pg_normalized_batch'
 echo '================================================================================'
-# FIXME: implement this with GNU parallel
-time echo "$files" | parallel ./load_normalized_batch.sh
+echo "$files" | time parallel python3 -u load_tweets_batch.py --db=postgresql://postgres:pass@localhost:9857/ --inputs
