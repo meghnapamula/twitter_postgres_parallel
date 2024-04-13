@@ -18,6 +18,7 @@ time for file in $files; do
     echo
     # copy your solution to the twitter_postgres assignment here
     python3 load_tweets.py --db=postgresql://postgres:pass@localhost:9856 --inputs "$file"
+
 done
 
 echo '================================================================================'
