@@ -105,6 +105,7 @@ def insert_tweet(connection,tweet):
         })
         if res.first() is not None:
             return
+        connection.commit()
 
         ########################################
         # insert into the users table
